@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function Modal({ open, title, onClose, actions, children }: Props) {
-    // body scroll lock kecil2an
+
     useEffect(() => {
         if (!open) return;
         const prev = document.body.style.overflow;

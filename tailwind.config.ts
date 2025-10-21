@@ -9,6 +9,7 @@
 // tailwind.config.ts
 
 import type {Config} from 'tailwindcss'
+import colors from "tailwindcss/colors";
 
 export default {
     // Bagian ini sangat penting untuk auto-completion
@@ -22,6 +23,12 @@ export default {
             fontFamily: {
                 // Daftarkan font baru agar bisa dipakai sebagai class
                 quran: ['var(--font-amiri-quran)'],
+            },
+            colors: {
+                blue: colors.blue, // pastikan pakai warna HEX, bukan oklch
+                zinc: colors.zinc,
+                gray: colors.gray,
+                white: "#ffffff",
             },
         },
     },

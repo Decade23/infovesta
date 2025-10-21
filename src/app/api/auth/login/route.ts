@@ -6,7 +6,7 @@ import { LoginSchema, LoginInput } from "@/validation/auth";
 import type { User } from "@/domain/models";
 
 const mem: { users: (User & { pass: string })[]; me?: User } = {
-    users: [{ id:"1", email:"admin@ps.id", name:"Admin", roles:["admin"], pass:"admin1" }],
+    users: [{ id:"1", email:"admin@infovesta.com", name:"Admin", roles:["admin"], pass:"infovesta1" }],
 };
 
 export async function GET() { return ok<User | null>(mem.me ?? null); }

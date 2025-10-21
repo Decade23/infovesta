@@ -9,9 +9,6 @@ import { useUI } from "@/state/ui-store";
 
 const items = [
     { href: "/admin", label: "Home" },
-    { href: "/admin/users", label: "Users" },
-    { href: "/admin/roles", label: "Roles" },
-    { href: "/admin/trainings", label: "Trainings" },
 ];
 
 const isActive = (pathname: string, href: string) => {
