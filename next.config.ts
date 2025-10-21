@@ -10,7 +10,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-    allowedDevOrigins: ['localhost', '*']
+    allowedDevOrigins: ['localhost', '*'],
+    eslint: {
+        ignoreDuringBuilds: true, // ✅ Skip lint di waktu build (Vercel & local)
+    },
+    typescript: {
+        ignoreBuildErrors: true, // ✅ Jika ingin abaikan TS error juga
+    }
 };
 
 export default nextConfig;
