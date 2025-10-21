@@ -1,0 +1,86 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+/* ---------- THEME TOKENS (class-based) ---------- */
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+
+/* Pakai class untuk theme, bukan prefers-color-scheme.
+   Nanti kalau butuh dark: tinggal tambahkan class "theme-dark" di <html>. */
+.theme-light {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+.theme-dark {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+}
+
+/* Tailwind theme variables (inline theme API) */
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-poppins-sans);
+    --font-mono: var(--font-inter-sans);
+}
+
+/* ---------- BASE ---------- */
+@layer base {
+    html, body {
+        min-height: 100%;
+    }
+    body {
+        background: var(--background);
+        color: var(--foreground);
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+        background: #fde68a; /* amber-200 */
+        color: #111827;      /* zinc-900 */
+    }
+
+    /* Input & button fokus lebih jelas */
+    :focus-visible {
+        outline: 2px solid #f59e0b; /* amber-500 */
+        outline-offset: 2px;
+    }
+}
+
+/* ---------- UTILITIES ---------- */
+@layer utilities {
+    .gpu-layer {
+        will-change: opacity, transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        contain: paint;
+    }
+
+    .animate-ripple { animation: ripple-effect 0.5s linear; }
+    @keyframes ripple-effect {
+        0%   { transform: scale(0);   opacity: .7; }
+        100% { transform: scale(2.5); opacity: 0; }
+    }
+}
+
+/* ---------- TEXT HELPERS ---------- */
+.text-primary    { @apply text-amber-500; }
+.text-h-zinc     { @apply font-semibold text-zinc-300; }
+
+
+/* ---------- NProgress brand theme ---------- */
+#nprogress { pointer-events: none; }
+#nprogress .bar{
+    position: fixed; inset: 0 auto auto 0;
+    width: 100%; height: 6px;
+    background: linear-gradient(90deg,#f3c259,#ffd77c);
+    z-index: 9999;
+}
+#nprogress .peg{
+    box-shadow: 0 0 12px #ffd77c, 0 0 6px #f3c259;
+}
+#nprogress .spinner{ display:none !important; }
